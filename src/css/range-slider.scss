@@ -1,0 +1,16 @@
+.block {
+  width: 100px;
+  height: 100px;
+  background: green;
+  &.active {
+    background: red;
+  }
+}
+
+.controller {
+  margin: 25px;
+  border: 2px solid black;
+  width: 60px;
+  height: 25px;
+  cursor: pointer;
+}
