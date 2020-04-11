@@ -1,0 +1,84 @@
+.range-slider
+  width: 500px
+
+  &_vertical
+    transform: rotate(90deg)
+
+  &__scale
+    width: 100%
+    height: 5px
+    position: relative
+    background: RGBA(229, 229, 229, 1.00)
+    border-radius: 3px
+
+  &__point
+    width: 15px
+    height: 15px
+    position: absolute
+    background: RGBA(230, 87, 61, 1.00)
+    border-radius: 10px
+    top: -5px
+
+    &_one
+      left: 20px
+
+    &_two
+      left: 90px
+
+    &::after
+      content: "20"
+      position: absolute
+      top: -30px
+      left: -60%
+      width: 26px
+      height: 20px
+      color: white
+      border-radius: 4px
+      background-color: RGBA(230, 87, 61, 1.00)
+      padding-top: 4px
+      padding-left: 9px
+      display: none
+
+    &:hover::after
+      display: block
+
+.loading-bar
+  width: 100%
+  display: flex
+  justify-content: space-between
+
+
+//Vertical
+//
+//.range-slider
+//  width: 500px
+//  transform: translate(-220px, 240px) rotate(90deg) //This Vertical
+//
+//  &_vertical
+//    transform: rotate(90deg)
+//
+//  &__scale
+//    width: 100%
+//    height: 5px
+//    position: relative
+//    background: RGBA(229, 229, 229, 1.00)
+//    border-radius: 3px
+//
+//  &__point
+//    width: 15px
+//    height: 15px
+//    position: absolute
+//    background: RGBA(230, 87, 61, 1.00)
+//    border-radius: 10px
+//    top: -5px
+//
+//    &_one
+//      left: 20px
+//
+//    &_two
+//      left: 90px
+//
+//.loading-bar
+//  width: 100%
+//  display: flex
+//  justify-content: space-between
