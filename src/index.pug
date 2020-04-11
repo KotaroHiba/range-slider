@@ -1,4 +1,23 @@
-div.block#block
-div.controller(data-color='red') красный
-div.controller(data-color='pink') розовый
+// Слайдер с одной точкой и баром загрузки
+div.range-slider
+    div.range-slider__scale
+        div.range-slider__point.range-slider__point.range-slider__point_one
+    div.loading-bar.range-slider__loading-bar
+        div 0
+        div 25
+        div 50
+        div 75
+        div 100
 
+// Слайдер с 2мя ползунками
+br
+div.range-slider
+    div.range-slider__scale
+        div.range-slider__point.range-slider__point_one
+        div.range-slider__point.range-slider__point_two
+    div.loading-bar.range-slider__loading-bar
+        div 0
+        div 25
+        div 50
+        div 75
+        div 100

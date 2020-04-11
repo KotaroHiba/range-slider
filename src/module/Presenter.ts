@@ -6,7 +6,6 @@ export default class Presenter {
     protected views: Views = new Views();
 
     constructor() {
-
         this.trackClickController()
     }
 
