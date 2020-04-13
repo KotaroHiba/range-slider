@@ -14,7 +14,8 @@ export default class Model {
 
     public getCoordinates(block: any, event: any) {
         event.stopPropagation();
-        let x: number = event.layerX;
+        let x: number = event.clientX - 15;
+        alert(x)
         return this.conventPersent(block, x);
     }
 

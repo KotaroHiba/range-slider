@@ -4,6 +4,24 @@ import './css/orange.sass'
 import Presenter from "./module/Presenter";
 new Presenter();
 
+
+// let block : any = document.getElementById('test');
+// function getCoords(elem :any) {
+//     var box = elem.getBoundingClientRect();
+//
+//     return {
+//         top: box.top,
+//         left: box.left
+//     };
+//
+// }
+//
+// block.onclick = function () {
+//     console.log(getCoords(block));
+// };
+
+
+
 // function createLoadingBar(value : number) {
 //     let stepValue : number = value / 4;
 //     let stepOne = value / 4;
