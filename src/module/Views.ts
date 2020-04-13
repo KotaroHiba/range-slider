@@ -1,6 +1,8 @@
 export default class Views {
-    public colorSwap(block : any, color : string){
-        block.style.background = color;
+
+    public setPoint(block : any, coordinates : number ,namePoint : string = 'range-slider__point_one')
+    {
+        return block.querySelector('.' + namePoint).style.left = `${coordinates}%`
     }
 
 }

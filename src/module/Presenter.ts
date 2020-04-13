@@ -1,8 +1,11 @@
 import Model from "./Model";
 import Views from "./Views";
 
+
 export default class Presenter {
-    protected model: Model = new Model('block', 'controller');
+    protected model: Model = new Model({
+        blockName: 'range-slider'
+    });
     protected views: Views = new Views();
 
     constructor() {
@@ -10,8 +13,9 @@ export default class Presenter {
     }
 
     protected trackClickController() {
-        for (let i = 0; i < this.model.getControllers().length; i++) this.model.getControllers()[i].onclick = () => this.views.colorSwap(this.model.getBlock(), this.model.getControllers()[i].dataset.color)
-    }
+        const model: Model = this.model;
+        for (let block of model.getBlocks())
+            block.onclick = () => this.views.setPoint(block, model.getCoordinates(block, event));}
 
 }
 
