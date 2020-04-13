@@ -14,9 +14,15 @@ export default class Model {
 
     public getCoordinates(block: any, event: any) {
         event.stopPropagation();
+        // TODO написать автоматическое вычисление длины точек и вычитать их
         let x: number = event.clientX - 15;
-        alert(x)
         return this.conventPersent(block, x);
+    }
+
+    public getCoordinatesPoints(block: any, arr: string[]) {
+        let elements = block.querySelectorAll('.range-slider__point');
+        // if (!elements[1]) return false
+        alert(elements[0].style.left);
     }
 
     private conventPersent(block: any, value: number) {

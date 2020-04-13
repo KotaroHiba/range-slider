@@ -3,19 +3,22 @@ import Views from "./Views";
 
 
 export default class Presenter {
-    protected model: Model = new Model({
-        blockName: 'range-slider'
-    });
-    protected views: Views = new Views();
+    protected model:Model;
+    protected views: Views;
 
-    constructor() {
+    constructor(dataRangeSlider : object) {
+        this.model = new Model(dataRangeSlider);
+        this.views = new Views();
         this.trackClickController()
     }
 
     protected trackClickController() {
         const model: Model = this.model;
-        for (let block of model.getBlocks())
-            block.onclick = () => this.views.setPoint(block, model.getCoordinates(block, event));}
 
+        for (let block of model.getBlocks()) {
+            // this.model.getCoordinatesPoints(block, []);
+            block.onclick = () => this.views.setPoint(block, model.getCoordinates(block, event));
+        }
+    }
 }
 

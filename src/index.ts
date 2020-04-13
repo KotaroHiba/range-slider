@@ -2,7 +2,14 @@
 import './css/orange.sass'
 
 import Presenter from "./module/Presenter";
-new Presenter();
+new Presenter({
+    blockName: 'range-slider',
+    minValue: 0,
+    maxValue: 100,
+    twoInput: true,
+    vertical: true,
+
+});
 
 
 // let block : any = document.getElementById('test');
