@@ -2,20 +2,18 @@
 import './css/orange.sass'
 
 import Presenter from "./module/Presenter";
-// new Presenter({
-//     blockName: 'range-slider',
-//     minValue: 0,
-//     maxValue: 100,
-//     twoInput: true,
-//     vertical: true,
-//     loadingBar: true,
-// });
+new Presenter({
+    blockName: 'mem',
+    minValue: 0,
+    maxValue: 100,
+    twoPoint: true,
+    vertical: true,
+    loadingBar: true,
+});
 
-function $(name : string = '') {
-    return new Presenter()
-}
+// console.log(document.querySelector('.range-slider'));
 
-$('range-slider').rangeSlider();
+
 // let block : any = document.getElementById('test');
 // function getCoords(elem :any) {
 //     var box = elem.getBoundingClientRect();

@@ -1,9 +1,10 @@
 export default class Model {
     private blocks: any;
-
+    private data : any;
 
     constructor(data: any) {
-        this.searchBlocks(data.blockName);
+        this.data = data;
+        this.searchBlock(this.data.blockName);
         this.searchController()
     }
 
@@ -25,6 +26,10 @@ export default class Model {
         alert(elements[0].style.left);
     }
 
+    public getData(){
+        return this.data;
+    }
+
     // TODO функция адекватно работает только в диапазоне [0, 100]
     public getScaleOfValues(min : number, max : number){
         let step:number = max / 4;
@@ -40,9 +45,10 @@ export default class Model {
         return value / block.offsetWidth * 100;
     }
 
-    private searchBlocks(blockName: string) {
+    private searchBlock(blockName: string) {
         this.blocks = document.getElementsByClassName(blockName);
     }
+
 
     private searchController() {
         for (let i = 0; i < this.blocks.length; i++) this.blocks[i].querySelectorAll('.range-slider__point');
