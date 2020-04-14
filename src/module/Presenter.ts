@@ -14,7 +14,7 @@ export default class Presenter {
 
     protected trackClickController() {
         const model: Model = this.model;
-
+        this.views.outputScaleOfValues(model.getBlocks()[1], model.getScaleOfValues(0, 100));
         for (let block of model.getBlocks()) {
             // this.model.getCoordinatesPoints(block, []);
             block.onclick = () => this.views.setPoint(block, model.getCoordinates(block, event));

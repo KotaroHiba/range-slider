@@ -25,6 +25,17 @@ export default class Model {
         alert(elements[0].style.left);
     }
 
+    // TODO функция адекватно работает только в диапазоне [0, 100]
+    public getScaleOfValues(min : number, max : number){
+        let step:number = max / 4;
+        let steps : number[] = [min];
+        for (let i = 0; i < 4; i++) {
+            steps.push(step);
+            step += max / 4
+        }
+        return steps;
+    }
+
     private conventPersent(block: any, value: number) {
         return value / block.offsetWidth * 100;
     }
