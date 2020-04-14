@@ -8,7 +8,7 @@ new Presenter({
     maxValue: 100,
     twoInput: true,
     vertical: true,
-
+    loadingBar: true,
 });
 
 
