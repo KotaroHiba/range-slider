@@ -1,6 +1,9 @@
 export default class Model {
     private blocks: any;
-    private data: any;
+    private data: any = {
+        twoPoint: false,
+        loadingBar: false,
+    };
 
     constructor(data: any) {
         this.data = data;
@@ -16,10 +19,11 @@ export default class Model {
     public getCoordinates(block: any, event: any) {
         event.stopPropagation();
         let x: number = event.clientX - 15;
+        if (x > block.offsetWidth) x = block.offsetWidth;
         return this.conventPersent(block, x);
     }
 
-    public getCoordinatesPoints(block: any, arr: string[]) {
+    public getCoordinatesPoints(block: any) {
         let elements = block.querySelectorAll('.range-slider__point');
         let values: number[] = [];
         for (let i = 0; i < elements.length; i++) {
@@ -33,7 +37,7 @@ export default class Model {
     }
 
     // TODO функция адекватно работает только в диапазоне [0, 100]
-    public getScaleOfValues(min: number, max: number) {
+    public getScaleOfValues(min: number = 0, max: number = 100) {
         let step: number = max / 4;
         let steps: number[] = [min];
         for (let i = 0; i < 4; i++) {

@@ -16,9 +16,8 @@ export default class Presenter {
         const model: Model = this.model;
 
         for (let block of model.getBlocks()) {
-
             block.onclick = () => {
-                this.views.setPoint(block, model.getCoordinates(block, event), this.selectionPoint(block, this.model.getCoordinatesPoints(block, [])));
+                this.views.setPoint(block, model.getCoordinates(block, event), this.selectionPoint(block, this.model.getCoordinatesPoints(block)));
             }
         }
     }
@@ -28,9 +27,11 @@ export default class Presenter {
         const blocks = this.model.getBlocks();
         this.views.outputRangeSlider(blocks, data);
         if(data.twoPoint) this.addPoint();
-        if(data.loadingBar)
+        if(data.loadingBar) {
             this.addLoadingBar();
             this.views.outputScaleOfValues(blocks, this.model.getScaleOfValues(data.minValue, data.maxValue))
+        }
+
     }
 
     private addPoint(){
@@ -42,26 +43,10 @@ export default class Presenter {
     }
 
     private selectionPoint(block : any , coord : number[]){
-
-        // координата клика
-        let clickCoord = this.model.getCoordinates(block, event);
-        // console.log(this.model.getCoordinates(block, event));
-        let pointOne = clickCoord - coord[0];
-        let pointTwo = clickCoord - coord[1];
         let way : number[] = [];
-        for (let i = 0; i < coord.length; i++) {
-             way[i] = Math.abs(clickCoord - coord[i]);
-        }
-        // console.log(way);
-        // console.log(clickCoord);
-        if (way[0] < way[1]) {
-            return 'range-slider__point_one'
-        } else {
-            return 'range-slider__point_two'
-        }
-        //координаты точек
-        // console.log(coord)
-
-
+        if (coord.length == 1) return 'range-slider__point_one'
+        for (let i = 0; i < coord.length; i++)
+            way[i] = Math.abs(this.model.getCoordinates(block, event) - coord[i]);
+        return way[0] < way[1] ? 'range-slider__point_one' : 'range-slider__point_two'
     }
 }
