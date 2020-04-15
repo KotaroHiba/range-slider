@@ -6,9 +6,8 @@ export default class Views {
         for (let block of blocks) {
             block.innerHTML = `
             <div class="range-slider__scale">
-                <div class="range-slider__point range-slider__point_one"></div>
+                <div class="range-slider__point range-slider__point_one" style="left:30%"></div>
             </div>`;
-
         }
     }
 
@@ -20,7 +19,7 @@ export default class Views {
 
     public outputSliderPoint(blocks: any = {}) {
         for (let block of blocks)
-            block.querySelector('.range-slider__scale').innerHTML += '<div class="range-slider__point range-slider__point_two"></div>'
+            block.querySelector('.range-slider__scale').innerHTML += '<div class="range-slider__point range-slider__point_two" style="left: 70%"></div>'
 
     }
 
@@ -29,9 +28,12 @@ export default class Views {
         return block.querySelector('.' + namePoint).style.left = `${coordinates}%`
     }
 
-    public static outputScaleOfValues(block: any, values: number[]) {
-        for (let item of values)
-            block.innerHTML = block.innerHTML + `<div>${item}</div>`
+    public  outputScaleOfValues(blocks: any, values: number[]) {
+        for (let block of blocks){
+            for (let item of values)
+                block.querySelector('.loading-bar').innerHTML = block.querySelector('.loading-bar').innerHTML + `<div>${item}</div>`
+        }
+
     }
 }
 
