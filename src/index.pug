@@ -1,16 +1,5 @@
-// Слайдер с одной точкой и баром загрузки
-div.range-slider
-    div.range-slider__scale
-        div.range-slider__point.range-slider__point_one
-    div.loading-bar.range-slider__loading-bar
-
-
-// Слайдер с 2мя ползунками
-br
-div.range-slider
-    div.range-slider__scale
-        div.range-slider__point.range-slider__point_one
-        div.range-slider__point.range-slider__point_two
-    div.loading-bar.range-slider__loading-bar
-
-div#test
+div
+    input(type="range" min="0" max="100" step="10" value="10")
+    input(type="range" min="0" max="100" step="10" value="10")
+    output(name="result") 0
+    output(name="result2") 0
