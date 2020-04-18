@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="karma.conf.js" type="JavaScriptTestRunnerKarma" nameIsGenerated="true">
+    <config-file value="$PROJECT_DIR$/karma.conf.js" />
+    <karma-options value="--browser" />
+    <karma-package-dir value="" />
+    <working-directory value="$PROJECT_DIR$" />
+    <node-interpreter value="project" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>
