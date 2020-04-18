@@ -1,4 +1,4 @@
-export default class Model {
+class Model {
     private blocks: any;
     private data: any = {
         twoPoint: false,
@@ -7,8 +7,8 @@ export default class Model {
 
     constructor(data: any) {
         this.data = data;
-        this.searchBlock(this.data.blockName);
-        this.searchController()
+        // this.searchBlock(this.data.blockName);
+        // this.searchController()
     }
 
     public getBlocks() {
@@ -44,7 +44,8 @@ export default class Model {
             steps.push(step);
             step += max / 4
         }
-        return steps;
+        // return steps;
+        return 1;
     }
 
     private conventPersent(block: any, value: number) {
@@ -61,3 +62,4 @@ export default class Model {
 }
 
 
+module.exports = new Model({});
