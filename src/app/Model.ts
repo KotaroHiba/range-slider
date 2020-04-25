@@ -1,6 +1,7 @@
 export default class Model {
     private data: any;
 
+
     constructor(data: any) {
         this.data = data;
     }
