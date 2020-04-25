@@ -10,10 +10,5 @@ export default class Model {
         return this.data[key];
     }
 
-    private dataCheck() {
-        let data = this.data;
-        if (data.value <= 0 || data.step > data.value || data.max < data.min) return false;
-        return true;
-    }
 }
 
