@@ -2,31 +2,29 @@ import Model from "./Model";
 import View from "./View";
 
 export default class Presenter {
-    private model: Model;
+    public model: Model;
     private view: View;
-
+    private defaultData = {
+        obj: 'slider',
+        vertical: true, // boolean
+        range: true, // boolean
+        output: true, // boolean
+        value: [0, 100], // array | number
+        min: 0, // number
+        max: 100, // number
+        step: 1, // number
+        type: 'range'
+    };
     constructor(data: any) {
+        // this.model = new Model(Object.setPrototypeOf(data), this.defaultData);
+        Object.setPrototypeOf(data, this.defaultData);
+        this.model = new Model(data);
         this.view = new View();
-        this.addDataModel(data);
-    }
-
-    public createRangeSlider(html: any) {
-        let obj: any = $(html);
-        let data = this.model.getData('all');
-        this.view.displayRangeSlider(obj, data);
-    }
-
-
-    private addDataModel(data: any) {
-        this.dataCheck(data) ? this.model = new Model(data) : this.view.displayAlert('Введите корректные данные');
     }
 
     private dataCheck(data: any) {
-        if (data.value <= 0 || data.step > data.value || data.max < data.min) return false;
-        return true;
+        return !(data.min > data.max || data.step > data.max);
     }
-
-
 }
 
 
