@@ -129,6 +129,15 @@ let config  = {
                     outputPath: `/img/`
                 },
             },
+            {
+                test: /\.html$/,
+                loader: 'file-loader',
+                options: {
+                    name: `[name].[ext]`,
+                    publicPath: `../../blocks`,
+                    outputPath: `/blocks/`
+                },
+            },
         ],
     },
     // Подключаемые плагины
@@ -157,18 +166,23 @@ let config  = {
             "window.jQuery" : "jQuery",
         }),
         //
-        // new copyWebpackPlugin([
-        //     {
-        //         from: `${PATHS.src}/fonts`, to: `fonts`,
-        //         flatten: true,
-        //         ignore: ['*.scss']
-        //     },
-        //     {
-        //         from: `${PATHS.src}/components`, to: `img`,
-        //         flatten: true,
-        //         ignore: ['*.scss', '*.js', '*.pug']
-        //     }
-        // ])
+        new copyWebpackPlugin([
+            // {
+            //     from: `${PATHS.src}/fonts`, to: `fonts`,
+            //     flatten: true,
+            //     ignore: ['*.scss']
+            // },
+            // {
+            //     from: `${PATHS.src}/components`, to: `img`,
+            //     flatten: true,
+            //     ignore: ['*.scss', '*.js', '*.pug']
+            // }
+            {
+                from: `${PATHS.src}/blocks`, to: `blocks`,
+                flatten: true,
+                ignore: ['*.scss']
+            },
+        ])
     ]
 };
 // Экспортируем модуль в nodeJS без этого не работает :)
